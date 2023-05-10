@@ -1,10 +1,9 @@
 import requests
 
-with open("wallets.txt") as wallet:
-    wallets = wallet.readlines()
+with open("wallets.txt", "r") as f:
+    recepients = [row.strip() for row in f]
 
-for adresss in wallets:
-    adresss = adresss.replace("\n", "")
+for adresss in recepients:
 
     json_data = {
         'address': f'{adresss}',
@@ -17,6 +16,4 @@ for adresss in wallets:
     except:
         pass
 
-
 print("Всё, конец!")
-
